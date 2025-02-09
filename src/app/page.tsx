@@ -1,4 +1,4 @@
-import { APP_NAME } from "@/utils/app-info";
+import { APP_NAME } from "@/utils/appInfo";
 import styles from "./page.module.scss";
 
 export default function Home() {

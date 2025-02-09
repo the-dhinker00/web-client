@@ -1,5 +1,5 @@
 import Image from "next/image";
-import appLogo from "../../../public/images/logos/app-logo.png";
+import appLogo from "@/images/logos/app-logo.png";
 import styles from "./Header.module.scss";
 import Link from "next/link";
 
