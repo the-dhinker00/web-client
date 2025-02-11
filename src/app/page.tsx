@@ -1,11 +1,12 @@
-import { APP_NAME } from "@/utils/appInfo";
+"use client";
+
+import Hero from "@/components/Hero/Hero";
 import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      <h1>{APP_NAME}</h1>
-      Development in progress.
+      <Hero />
     </div>
   );
 }
