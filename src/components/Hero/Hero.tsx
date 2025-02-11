@@ -38,15 +38,16 @@ const Hero: React.FC = () => {
 
   return (
     <section className={styles.hero} ref={heroRef}>
-      <div className={styles.heroContent}>
-        <h1 className={styles.heroTitle}>Think Big, Think Dhinker!</h1>
+      <div className={styles.heroContainer}>
+        <h1 className={styles.heroTitle}>
+          Think Big, <br />
+          Think Dhinker!
+        </h1>
         <p className={styles.heroDescription}>
           Empowering Companies & Professionals to Leverage AI for Growth and
           Efficiency.
         </p>
-        <div className={styles.heroButtons}>
-          <button className={styles.ctaButton}>Get Started</button>
-        </div>
+        <button className={styles.ctaButton}>Get Started</button>
       </div>
     </section>
   );

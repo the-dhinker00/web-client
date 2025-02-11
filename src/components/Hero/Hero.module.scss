@@ -1,3 +1,74 @@
+@use "@/styles/abstracts/variables" as *;
+
 .hero {
+  display: flex;
+  justify-content: center;
   min-height: calc(100dvh - 100px);
+  width: 100%;
+  padding: 20px;
+
+  .heroContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    max-width: $max-width;
+    width: 100%;
+    margin-left: 160px;
+
+    .heroTitle {
+      font-size: 90px;
+      line-height: 100%;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .heroDescription {
+      font-size: $font-size-6;
+      line-height: 150%;
+      font-weight: 500;
+      margin-bottom: 40px;
+      max-width: 450px;
+    }
+
+    .ctaButton {
+      display: flex;
+      align-items: center;
+      background: $primary-green;
+      width: fit-content;
+      padding: 15px 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      color: $primary-black;
+      font-size: $font-size-4;
+      line-height: 150%;
+      font-weight: 500;
+      transition: all 0.2s ease-in-out;
+      position: relative;
+
+      z-index: 1;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: $primary-violet;
+        border-radius: inherit;
+        z-index: -1;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        color: $white;
+        box-shadow: 0px 0px 30px $primary-violet;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
 }
