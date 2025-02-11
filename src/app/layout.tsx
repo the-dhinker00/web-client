@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bebas_Neue } from "next/font/google";
 import { APP_NAME, APP_HEADLINE, APP_DESCRIPTION } from "@/utils/appInfo";
 import Header from "@/components/Header/Header";
 
@@ -8,14 +8,10 @@ import "@/styles/abstracts/variables.scss";
 import "@/styles/base/reset.scss";
 import Footer from "@/components/Footer/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-bebas-neue",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={bebasNeue.variable}>
         <Header />
         {children}
         <Footer />
