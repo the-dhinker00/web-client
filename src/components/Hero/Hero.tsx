@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
       updateMetadata();
 
       return () => {
-        document.title = "Your Default Title";
+        document.title = "";
         document
           .querySelector('meta[name="description"]')
           ?.setAttribute("content", "Your default description");
@@ -45,8 +45,8 @@ const Hero: React.FC = () => {
           Think Dhinker!
         </h1>
         <p className={styles.heroDescription}>
-          Empowering Companies & Professionals to Leverage AI for Growth and
-          Efficiency.
+          Empowering companies & professionals to leverage AI for growth and
+          efficiency.
         </p>
         <button className={styles.ctaButton}>Get Started</button>
       </div>
