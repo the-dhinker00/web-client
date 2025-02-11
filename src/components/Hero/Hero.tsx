@@ -1,6 +1,6 @@
-// Hero.js
-import styles from "./Hero.module.scss";
 import { useEffect, useRef } from "react";
+import HeroGradient from "@/components/HeroGradient/HeroGradient";
+import styles from "./Hero.module.scss";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -38,6 +38,7 @@ const Hero: React.FC = () => {
 
   return (
     <section className={styles.hero} ref={heroRef}>
+      <HeroGradient theme="dark" />
       <div className={styles.heroContainer}>
         <h1 className={styles.heroTitle}>
           Think Big, <br />
