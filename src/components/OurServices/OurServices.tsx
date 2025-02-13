@@ -1,3 +1,5 @@
+import { companyServicesData } from "@/data/servicesData";
+import CustomAccordion from "@/components/CustomAccordion/CustomAccordion";
 import styles from "./OurServices.module.scss";
 
 const OurServices: React.FC = () => {
@@ -10,7 +12,9 @@ const OurServices: React.FC = () => {
         </div>
 
         <div className={styles.subContainer}>
-          <div></div>
+          <div>For Companies</div>
+
+          <CustomAccordion data={companyServicesData} />
         </div>
       </div>
     </div>
