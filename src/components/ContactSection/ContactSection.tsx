@@ -6,13 +6,15 @@ const ContactSection: React.FC = () => {
       <div className={styles.sectionContainer}>
         <div className={styles.titleContainer}>
           <h2 className={styles.title1}>Get in Touch</h2>
-          <h2 className={styles.title2}>with Us</h2>
+          <h2 className={styles.title2}>with us.</h2>
         </div>
 
         <div className={styles.mainContent}>
           <div className={styles.contactCardContainer}>
             <div className={styles.contactCard}>
-              <div className={styles.contactCardTitle}>Address</div>
+              <div className={styles.contactCardTitle}>
+                <span className={styles.decoration}></span>Address
+              </div>
               <div className={styles.contactCardValue}>
                 Lorum Ipsum Dolor Sit Amet, <br />
                 1234 Street, City, State, Country
