@@ -65,7 +65,8 @@
           padding: 30px;
           border-radius: 20px;
           min-height: 300px;
-          width: 50%;
+          max-width: 300px;
+          width: 100%;
           background-color: $card-color-1;
           border: 1px solid $light-border;
           transition: all 0.3s ease-in-out;
