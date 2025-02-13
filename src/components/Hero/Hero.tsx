@@ -39,6 +39,7 @@ const Hero: React.FC = () => {
   return (
     <section className={styles.hero} ref={heroRef}>
       <HeroGradient theme="dark" />
+      <div className={styles.glassBackground}></div>
       <div className={styles.heroContainer}>
         <h1 className={styles.heroTitle}>
           Think Big, <br />
