@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import arrowIcon from "@/images/custom-accordion/arrow.svg";
 import styles from "./CustomAccordion.module.scss";
@@ -10,22 +10,43 @@ type servicesDataType = { id: number; title: string; description: string };
 const CustomAccordion: React.FC<{ data: servicesDataType[] }> = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const requestRef = useRef<number | null>(null);
+  const startTimeRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
-      setProgress(0);
-    }, 5000);
+    setProgress(0);
+    startTimeRef.current = null;
 
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => (prev < 100 ? prev + 2 : 100));
-    }, 100);
+    const animateProgress = (timestamp: number) => {
+      if (!startTimeRef.current) startTimeRef.current = timestamp;
+
+      const elapsed = timestamp - startTimeRef.current;
+      const newProgress = Math.min((elapsed / 5000) * 100, 100);
+
+      setProgress(newProgress);
+
+      if (newProgress < 100) {
+        requestRef.current = requestAnimationFrame(animateProgress);
+      } else {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
+        setProgress(0);
+        startTimeRef.current = null;
+        requestRef.current = requestAnimationFrame(animateProgress);
+      }
+    };
+
+    requestRef.current = requestAnimationFrame(animateProgress);
 
     return () => {
-      clearInterval(interval);
-      clearInterval(progressInterval);
+      if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
-  }, [data.length]);
+  }, [data.length, activeIndex]);
+
+  const handleClick = (index: number) => {
+    setActiveIndex(index);
+    setProgress(0);
+    startTimeRef.current = null;
+  };
 
   return (
     <div className={styles.accordion}>
@@ -40,7 +61,7 @@ const CustomAccordion: React.FC<{ data: servicesDataType[] }> = ({ data }) => {
         >
           <button
             className={styles.accordionTitle}
-            onClick={() => setActiveIndex(index)}
+            onClick={() => handleClick(index)}
           >
             {item.title}
             <div
@@ -75,7 +96,10 @@ const CustomAccordion: React.FC<{ data: servicesDataType[] }> = ({ data }) => {
           <div className={styles.progressBarContainer}>
             <div
               className={styles.progressBar}
-              style={{ width: activeIndex === index ? `${progress}%` : "0%" }}
+              style={{
+                width: activeIndex === index ? `${progress}%` : "0%",
+                transition: "width 0.3s linear",
+              }}
             ></div>
           </div>
         </div>
