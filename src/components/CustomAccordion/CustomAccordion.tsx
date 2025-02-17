@@ -10,7 +10,7 @@ type servicesDataType = { id: number; title: string; description: string };
 const CustomAccordion: React.FC<{
   data: servicesDataType[];
 }> = ({ data }) => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
