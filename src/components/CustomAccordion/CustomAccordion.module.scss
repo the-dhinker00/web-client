@@ -14,68 +14,68 @@
       .accordionTitle {
         color: $light-font;
       }
-    }
-  }
 
-  .accordionTitle {
-    width: 100%;
-    padding: 20px;
-    font-size: $font-size-8;
-    text-align: left;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: $grey-font;
-    transition: all 0.3s ease-in-out;
-  }
+      .arrowContainer {
+        background-color: $primary-green;
 
-  .accordionTitle span {
-    transition: transform 0.3s;
-  }
+        &:hover {
+          scale: 1.1;
+        }
 
-  .arrowContainer {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 50%;
-    transition: all 0.3s ease-in-out;
-
-    &.open {
-      background-color: $primary-green;
-
-      &:hover {
-        scale: 1.1;
+        .arrowIcon {
+          transform: rotate(-30deg);
+          filter: invert(1);
+        }
       }
     }
 
-    .arrowIcon {
+    .accordionTitle {
+      width: 100%;
+      padding: 20px;
+      font-size: $font-size-8;
+      text-align: left;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $grey-font;
       transition: all 0.3s ease-in-out;
-      z-index: 10;
+    }
 
-      &.open {
-        transform: rotate(-30deg);
-        filter: invert(1);
+    .accordionTitle span {
+      transition: transform 0.3s;
+    }
+
+    .arrowContainer {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 50%;
+      transition: all 0.3s ease-in-out;
+
+      .arrowIcon {
+        transition: all 0.3s ease-in-out;
+        z-index: 10;
       }
     }
-  }
 
-  .accordionContent {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-    padding: 0 20px;
+    .accordionContent {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+      padding: 0 20px;
 
-    .description {
-      font-size: $font-size-4;
-      line-height: 150%;
+      .description {
+        font-size: $font-size-4;
+        line-height: 150%;
+      }
     }
-  }
 
-  .accordionContent.active {
-    max-height: 100px;
-    padding: 10px 20px 40px;
+    .accordionContent.active {
+      max-height: 100px;
+      padding: 10px 20px 40px;
+    }
   }
 }
