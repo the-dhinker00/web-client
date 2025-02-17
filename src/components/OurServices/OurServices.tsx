@@ -12,7 +12,7 @@ const OurServices: React.FC = () => {
         </div>
 
         <div className={styles.subContainer}>
-          <div>For Companies</div>
+          <div className={styles.subTitle}>For Companies</div>
 
           <CustomAccordion data={companyServicesData} />
         </div>

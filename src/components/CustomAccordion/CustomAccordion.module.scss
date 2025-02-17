@@ -1,43 +1,81 @@
+@use "@/styles/abstracts/variables" as *;
+
 .accordion {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
+  width: 100%;
+  min-width: 100%;
+
   .accordionItem {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $light-border;
+    transition: all 0.3s ease-in-out;
+
+    &.open {
+      border-bottom: 1px solid darken($primary-green, 20%);
+
+      .accordionTitle {
+        color: $light-font;
+      }
+    }
   }
-  
+
   .accordionTitle {
     width: 100%;
-    padding: 12px;
-    font-size: 18px;
+    padding: 20px;
+    font-size: $font-size-8;
     text-align: left;
-    background: #f8f8f8;
+    background: transparent;
     border: none;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: $grey-font;
+    transition: all 0.3s ease-in-out;
   }
-  
+
   .accordionTitle span {
     transition: transform 0.3s;
   }
-  
-  .open {
-    transform: rotate(180deg);
+
+  .arrowContainer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+
+    &.open {
+      background-color: $primary-green;
+
+      &:hover {
+        scale: 1.1;
+      }
+    }
+
+    .arrowIcon {
+      transition: all 0.3s ease-in-out;
+      z-index: 10;
+
+      &.open {
+        transform: rotate(-30deg);
+        filter: invert(1);
+      }
+    }
   }
-  
+
   .accordionContent {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-    padding: 0 12px;
+    padding: 0 20px;
+
+    .description {
+      font-size: $font-size-4;
+      line-height: 150%;
+    }
   }
-  
+
   .accordionContent.active {
     max-height: 100px;
-    padding: 12px;
+    padding: 10px 20px 40px;
   }
-  
+}
