@@ -5,12 +5,24 @@
   min-width: 100%;
 
   .accordionItem {
-    border-bottom: 1px solid $light-border;
     transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid $light-border;
+
+    .progressBarContainer  {
+      height: 2px;
+      width: 100%;
+      color: blue;
+
+      .progressBar {
+        height: 100%;
+        width: 0%;
+        background: $primary-green;
+        transition: all 0.3s ease-in-out;
+      }
+
+    }
 
     &.open {
-      border-bottom: 1px solid darken($primary-green, 20%);
-
       .accordionTitle {
         color: $light-font;
       }

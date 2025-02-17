@@ -1,20 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import arrowIcon from "@/images/custom-accordion/arrow.svg";
 import styles from "./CustomAccordion.module.scss";
 
 type servicesDataType = { id: number; title: string; description: string };
 
-const CustomAccordion: React.FC<{
-  data: servicesDataType[];
-}> = ({ data }) => {
+const CustomAccordion: React.FC<{ data: servicesDataType[] }> = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
-  const toggleAccordion = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
+      setProgress(0);
+    }, 5000);
+
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => (prev < 100 ? prev + 2 : 100));
+    }, 100);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(progressInterval);
+    };
+  }, [data.length]);
 
   return (
     <div className={styles.accordion}>
@@ -29,7 +40,7 @@ const CustomAccordion: React.FC<{
         >
           <button
             className={styles.accordionTitle}
-            onClick={() => toggleAccordion(index)}
+            onClick={() => setActiveIndex(index)}
           >
             {item.title}
             <div
@@ -50,6 +61,7 @@ const CustomAccordion: React.FC<{
               />
             </div>
           </button>
+
           <div
             className={
               activeIndex === index
@@ -58,6 +70,13 @@ const CustomAccordion: React.FC<{
             }
           >
             <p className={styles.description}>{item.description}</p>
+          </div>
+
+          <div className={styles.progressBarContainer}>
+            <div
+              className={styles.progressBar}
+              style={{ width: activeIndex === index ? `${progress}%` : "0%" }}
+            ></div>
           </div>
         </div>
       ))}
