@@ -1,0 +1,110 @@
+@use "@/styles/abstracts/variables" as *;
+
+.accordion {
+  width: 100%;
+  min-width: 100%;
+
+  .accordionItem {
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid $light-border;
+
+    .progressBarContainer {
+      height: 2px;
+      width: 100%;
+
+      .progressBar {
+        height: 100%;
+        width: 0%;
+        background: $primary-green;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    &.open {
+      .accordionTitle {
+        color: $light-font;
+
+        .titleContainer {
+          .number {
+            color: $light-font;
+          }
+        }
+      }
+
+      .arrowContainer {
+        background-color: $primary-green;
+
+        &:hover {
+          scale: 1.1;
+        }
+
+        .arrowIcon {
+          transform: rotate(-30deg);
+          filter: invert(1);
+        }
+      }
+    }
+
+    .accordionTitle {
+      width: 100%;
+      padding: 20px;
+      font-size: $font-size-8;
+      text-align: left;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $grey-font;
+      transition: all 0.3s ease-in-out;
+
+      .titleContainer {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        .number {
+          font-size: $font-size-9;
+          line-height: 150%;
+          font-weight: 600;
+          color: $grey-font;
+        }
+      }
+    }
+
+    .accordionTitle span {
+      transition: transform 0.3s;
+    }
+
+    .arrowContainer {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 50%;
+      transition: all 0.3s ease-in-out;
+
+      .arrowIcon {
+        transition: all 0.3s ease-in-out;
+        z-index: 10;
+      }
+    }
+
+    .accordionContent {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+      padding: 0 20px;
+
+      .description {
+        font-size: $font-size-4;
+        line-height: 150%;
+      }
+    }
+
+    .accordionContent.active {
+      max-height: 100px;
+      padding: 10px 20px 40px;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.ourServices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100dvh;
+
+  padding: 20px 20px 80px;
+
+  .sectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    min-height: 100dvh;
+
+    max-width: $max-width;
+    width: 100%;
+
+    .titleContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .title1,
+      .title2 {
+        font-size: 64px;
+        line-height: 100%;
+        font-weight: 600;
+        color: $light-font;
+
+        width: 80%;
+      }
+
+      .title2 {
+        border: 6px solid $primary-green;
+        border-radius: 50px;
+        padding: 10px 20px;
+        width: fit-content;
+        margin-left: 33%;
+      }
+    }
+
+    .subContainer {
+      width: 90%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .subTitle {
+        font-size: $font-size-9;
+        line-height: 150%;
+        font-weight: 600;
+        color: $light-font;
+
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,208 @@
+@use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/mixins" as *;
+
+.contactSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100dvh;
+
+  padding: 20px 20px 80px;
+
+  .sectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    min-height: 100dvh;
+
+    max-width: $max-width;
+    width: 100%;
+
+    .titleContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .title1,
+      .title2 {
+        font-size: 64px;
+        line-height: 100%;
+        font-weight: 600;
+        color: $light-font;
+
+        width: 80%;
+      }
+
+      .title2 {
+        border: 6px solid $primary-green;
+        border-radius: 50px;
+        padding: 10px 20px;
+        width: fit-content;
+        margin-left: 25%;
+      }
+    }
+
+    .mainContent {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      width: 100%;
+
+      .contactCardContainer {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        width: 50%;
+
+        .contactCard {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          padding: 30px;
+          border-radius: 20px;
+          min-height: 300px;
+          max-width: 300px;
+          width: 100%;
+          background-color: $card-color-1;
+          border: 1px solid $light-border;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            cursor: pointer;
+            background-color: transparent;
+            border: 1px solid $primary-green;
+          }
+
+          .contactCardTitle {
+            font-size: $font-size-3;
+            line-height: 150%;
+            font-weight: 600;
+            color: $light-font;
+
+            position: relative;
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -5px;
+              left: 0;
+              width: 50px;
+              height: 2px;
+              border-radius: 10px;
+              background-color: $light-border;
+              transition: width 0.3s ease-in-out;
+            }
+          }
+
+          .contactCardValue {
+            font-size: $font-size-2;
+            line-height: 150%;
+            font-weight: 500;
+            color: $light-font;
+          }
+
+          &:hover .contactCardTitle::after {
+            width: 100%;
+            background-color: $primary-green;
+          }
+        }
+      }
+
+      .formContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 50%;
+
+        .formTitle {
+          font-size: $font-size-4;
+          line-height: 150%;
+          font-weight: 600;
+          color: $light-font;
+        }
+
+        .form {
+          display: flex;
+          gap: 20px;
+          flex-direction: column;
+
+          .input,
+          .textarea {
+            width: 100%;
+            border-radius: 10px;
+            padding: 15px 20px;
+            background: $card-color-1;
+            border: 1px solid $light-border;
+
+            color: $light-font;
+            font-size: $font-size-3;
+            resize: none;
+
+            transition: all 0.3s ease-in-out;
+
+            &:focus,
+            &:active {
+              border: 1px solid $primary-green;
+              outline: none;
+              background: none;
+            }
+
+            &::placeholder {
+              color: gray;
+            }
+          }
+
+          .textarea {
+            height: 150px;
+          }
+
+          .submitBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $primary-green;
+            width: fit-content;
+            padding: 15px 20px;
+            min-width: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            color: $primary-black;
+            font-size: $font-size-3;
+            line-height: 150%;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+
+            z-index: 1;
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 0;
+              height: 100%;
+              background-color: $primary-violet;
+              border-radius: inherit;
+              z-index: -1;
+              transition: all 0.2s ease-in-out;
+            }
+
+            &:hover {
+              color: $white;
+              box-shadow: 0px 0px 30px $primary-violet;
+            }
+
+            &:hover::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

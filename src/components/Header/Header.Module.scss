@@ -1,0 +1,56 @@
+@use "@/styles/abstracts/variables" as *;
+
+.header {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // z-index: 100;
+
+  .headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: $max-width;
+    width: 100%;
+
+    .appLogo {
+      width: 100px;
+      height: auto;
+    }
+
+    .navContainer {
+      display: flex;
+      gap: 20px;
+
+      .navItem {
+        font-size: font-size-4;
+        font-weight: 500;
+
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $primary-violet;
+          border-radius: 5px;
+          transition: width 0.3s ease-in-out;
+        }
+
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

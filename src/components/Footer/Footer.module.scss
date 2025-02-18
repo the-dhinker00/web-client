@@ -1,0 +1,154 @@
+@use "@/styles/abstracts/variables" as *;
+
+.footer {
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 40px 20px;
+
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: $max-width;
+    width: 100%;
+
+    .appName {
+      font-size: 200px;
+      line-height: 75%;
+      font-weight: 600;
+      color: $primary-green;
+      margin-bottom: 20px;
+
+      .highlight {
+        color: $primary-violet;
+        margin-left: 4px;
+      }
+    }
+
+    .topContainer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .contactInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .phone,
+        .email {
+          font-size: $font-size-3;
+          line-height: 150%;
+          font-weight: 500;
+        }
+      }
+
+      .contactContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .emailTItle {
+          font-size: $font-size-7;
+          line-height: 150%;
+          font-weight: 500;
+        }
+
+        .emailInputContainer {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .emailInput {
+            width: 300px;
+            border-radius: 25px;
+            padding: 15px 20px;
+            background: $light-background;
+
+            color: $dark-font;
+            font-size: $font-size-3;
+
+            &:focus,
+            &:active {
+              border: none;
+              outline: none;
+            }
+
+            &::placeholder {
+              color: gray;
+            }
+          }
+
+          .sendBtnContainer {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              cursor: pointer;
+              background-color: $primary-green;
+
+              .sendBtn {
+                transform: rotate(-30deg);
+                filter: invert(1);
+              }
+            }
+
+            .sendBtn {
+              transition: all 0.3s ease-in-out;
+              z-index: 10;
+              width: 28px;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+
+    .bottomContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+
+      .copyright {
+        font-size: $font-size-3;
+        line-height: 150%;
+        font-weight: 500;
+      }
+
+      .socialsContainer {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .socialItem {
+          padding: 10px;
+          border: solid 1px $light-font;
+          border-radius: 50%;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            border: solid 1px $primary-violet;
+            box-shadow: 0 0 20px $primary-violet;
+            scale: 1.1;
+          }
+
+          .socialIcon {
+            width: 24px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
