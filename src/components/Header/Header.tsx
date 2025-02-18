@@ -1,7 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import appLogo from "@/images/logos/app-logo.png";
 import styles from "./Header.module.scss";
-import Link from "next/link";
 
 const navItems = [
   {
