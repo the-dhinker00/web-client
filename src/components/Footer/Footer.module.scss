@@ -67,7 +67,7 @@
             padding: 15px 20px;
             background: $light-background;
 
-            color: $light-font;
+            color: $dark-font;
             font-size: $font-size-3;
 
             &:focus,
@@ -81,9 +81,29 @@
             }
           }
 
-          .sendBtn {
-            width: 40px;
-            height: auto;
+          .sendBtnContainer {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              cursor: pointer;
+              background-color: $primary-green;
+
+              .sendBtn {
+                transform: rotate(-30deg);
+                filter: invert(1);
+              }
+            }
+
+            .sendBtn {
+              transition: all 0.3s ease-in-out;
+              z-index: 10;
+              width: 28px;
+              height: auto;
+            }
           }
         }
       }

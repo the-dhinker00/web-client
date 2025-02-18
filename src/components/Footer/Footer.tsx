@@ -2,7 +2,7 @@ import Image from "next/image";
 import linkedInIcon from "@/images/footer/linkedin.svg";
 import instagramIcon from "@/images/footer/instagram.svg";
 import xIcon from "@/images/footer/x.svg";
-import rightArrow from "@/images/footer/right-arrow.svg";
+import rightArrow from "@/images/custom-accordion/arrow.svg";
 import styles from "./Footer.module.scss";
 import Link from "next/link";
 
@@ -44,11 +44,13 @@ const Footer: React.FC = () => {
                 type="email"
                 placeholder="Enter your email..."
               />
-              <Image
-                className={styles.sendBtn}
-                src={rightArrow}
-                alt="Right Arrow"
-              />
+              <div className={styles.sendBtnContainer}>
+                <Image
+                  className={styles.sendBtn}
+                  src={rightArrow}
+                  alt="Right Arrow"
+                />
+              </div>
             </div>
           </div>
 
@@ -59,7 +61,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div className={styles.bottomContainer}>
-          <p className={styles.copyright}>© 2025 The Dhinker. All rights reserved.</p>
+          <p className={styles.copyright}>
+            © 2025 The Dhinker. All rights reserved.
+          </p>
 
           <div className={styles.socialsContainer}>
             {socialsIcons.map((item) => (
