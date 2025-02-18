@@ -63,7 +63,13 @@ const CustomAccordion: React.FC<{ data: servicesDataType[] }> = ({ data }) => {
             className={styles.accordionTitle}
             onClick={() => handleClick(index)}
           >
-            {item.title}
+            <div className={styles.titleContainer}>
+              <p className={styles.number}>
+                {index + 1 < 10 ? `0${index + 1}` : index + 1}
+              </p>
+              {item.title}
+            </div>
+
             <div
               className={
                 activeIndex === index
